@@ -1,0 +1,74 @@
+[
+  { "name": "Paris", "region": "Île-de-France", "lat": 48.8566, "lng": 2.3522, "population": 2161000 },
+  { "name": "Versailles", "region": "Île-de-France", "lat": 48.8014, "lng": 2.1301, "population": 85000 },
+  { "name": "Boulogne-Billancourt", "region": "Île-de-France", "lat": 48.8336, "lng": 2.2419, "population": 121000 },
+  { "name": "Saint-Denis", "region": "Île-de-France", "lat": 48.9362, "lng": 2.3574, "population": 113000 },
+  { "name": "Fontainebleau", "region": "Île-de-France", "lat": 48.4039, "lng": 2.7010, "population": 15000 },
+
+  { "name": "Lyon", "region": "Auvergne-Rhône-Alpes", "lat": 45.7640, "lng": 4.8357, "population": 522000 },
+  { "name": "Grenoble", "region": "Auvergne-Rhône-Alpes", "lat": 45.1885, "lng": 5.7245, "population": 158000 },
+  { "name": "Saint-Étienne", "region": "Auvergne-Rhône-Alpes", "lat": 45.4397, "lng": 4.3872, "population": 172000 },
+  { "name": "Annecy", "region": "Auvergne-Rhône-Alpes", "lat": 45.8992, "lng": 6.1294, "population": 130000 },
+  { "name": "Clermont-Ferrand", "region": "Auvergne-Rhône-Alpes", "lat": 45.7772, "lng": 3.0870, "population": 147000 },
+  { "name": "Chambéry", "region": "Auvergne-Rhône-Alpes", "lat": 45.5646, "lng": 5.9178, "population": 59000 },
+  { "name": "Valence", "region": "Auvergne-Rhône-Alpes", "lat": 44.9334, "lng": 4.8924, "population": 64000 },
+
+  { "name": "Lille", "region": "Hauts-de-France", "lat": 50.6292, "lng": 3.0573, "population": 234000 },
+  { "name": "Amiens", "region": "Hauts-de-France", "lat": 49.8941, "lng": 2.2957, "population": 134000 },
+  { "name": "Calais", "region": "Hauts-de-France", "lat": 50.9581, "lng": 1.8503, "population": 72000 },
+  { "name": "Roubaix", "region": "Hauts-de-France", "lat": 50.6901, "lng": 3.1817, "population": 98000 },
+
+  { "name": "Bordeaux", "region": "Nouvelle-Aquitaine", "lat": 44.8378, "lng": -0.5792, "population": 260000 },
+  { "name": "Limoges", "region": "Nouvelle-Aquitaine", "lat": 45.8336, "lng": 1.2611, "population": 130000 },
+  { "name": "Poitiers", "region": "Nouvelle-Aquitaine", "lat": 46.5802, "lng": 0.3404, "population": 89000 },
+  { "name": "La Rochelle", "region": "Nouvelle-Aquitaine", "lat": 46.1591, "lng": -1.1520, "population": 76000 },
+  { "name": "Biarritz", "region": "Nouvelle-Aquitaine", "lat": 43.4832, "lng": -1.5586, "population": 25000 },
+  { "name": "Pau", "region": "Nouvelle-Aquitaine", "lat": 43.2951, "lng": -0.3708, "population": 77000 },
+
+  { "name": "Toulouse", "region": "Occitanie", "lat": 43.6047, "lng": 1.4442, "population": 493000 },
+  { "name": "Montpellier", "region": "Occitanie", "lat": 43.6108, "lng": 3.8767, "population": 299000 },
+  { "name": "Nîmes", "region": "Occitanie", "lat": 43.8367, "lng": 4.3601, "population": 150000 },
+  { "name": "Perpignan", "region": "Occitanie", "lat": 42.6887, "lng": 2.8948, "population": 120000 },
+  { "name": "Carcassonne", "region": "Occitanie", "lat": 43.2130, "lng": 2.3491, "population": 47000 },
+  { "name": "Albi", "region": "Occitanie", "lat": 43.9298, "lng": 2.1479, "population": 49000 },
+
+  { "name": "Strasbourg", "region": "Grand Est", "lat": 48.5734, "lng": 7.7521, "population": 287000 },
+  { "name": "Reims", "region": "Grand Est", "lat": 49.2583, "lng": 4.0317, "population": 182000 },
+  { "name": "Metz", "region": "Grand Est", "lat": 49.1193, "lng": 6.1757, "population": 116000 },
+  { "name": "Nancy", "region": "Grand Est", "lat": 48.6921, "lng": 6.1844, "population": 104000 },
+  { "name": "Colmar", "region": "Grand Est", "lat": 48.0794, "lng": 7.3585, "population": 69000 },
+  { "name": "Troyes", "region": "Grand Est", "lat": 48.2973, "lng": 4.0744, "population": 61000 },
+
+  { "name": "Marseille", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.2965, "lng": 5.3698, "population": 870000 },
+  { "name": "Nice", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.7102, "lng": 7.2620, "population": 342000 },
+  { "name": "Toulon", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.1242, "lng": 5.9280, "population": 171000 },
+  { "name": "Aix-en-Provence", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.5297, "lng": 5.4474, "population": 147000 },
+  { "name": "Avignon", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.9493, "lng": 4.8055, "population": 91000 },
+  { "name": "Cannes", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.5528, "lng": 7.0174, "population": 74000 },
+
+  { "name": "Nantes", "region": "Pays de la Loire", "lat": 47.2184, "lng": -1.5536, "population": 320000 },
+  { "name": "Angers", "region": "Pays de la Loire", "lat": 47.4784, "lng": -0.5632, "population": 156000 },
+  { "name": "Le Mans", "region": "Pays de la Loire", "lat": 48.0061, "lng": 0.1996, "population": 145000 },
+
+  { "name": "Rouen", "region": "Normandie", "lat": 49.4432, "lng": 1.0993, "population": 113000 },
+  { "name": "Caen", "region": "Normandie", "lat": 49.1829, "lng": -0.3707, "population": 105000 },
+  { "name": "Le Havre", "region": "Normandie", "lat": 49.4944, "lng": 0.1079, "population": 165000 },
+  { "name": "Honfleur", "region": "Normandie", "lat": 49.4176, "lng": 0.2322, "population": 7400 },
+
+  { "name": "Rennes", "region": "Bretagne", "lat": 48.1173, "lng": -1.6778, "population": 220000 },
+  { "name": "Brest", "region": "Bretagne", "lat": 48.3904, "lng": -4.4861, "population": 139000 },
+  { "name": "Quimper", "region": "Bretagne", "lat": 47.9960, "lng": -4.0979, "population": 62000 },
+  { "name": "Saint-Malo", "region": "Bretagne", "lat": 48.6494, "lng": -2.0260, "population": 46000 },
+  { "name": "Vannes", "region": "Bretagne", "lat": 47.6582, "lng": -2.7608, "population": 53000 },
+
+  { "name": "Dijon", "region": "Bourgogne-Franche-Comté", "lat": 47.3220, "lng": 5.0415, "population": 157000 },
+  { "name": "Besançon", "region": "Bourgogne-Franche-Comté", "lat": 47.2378, "lng": 6.0241, "population": 118000 },
+  { "name": "Beaune", "region": "Bourgogne-Franche-Comté", "lat": 47.0240, "lng": 4.8398, "population": 21000 },
+
+  { "name": "Tours", "region": "Centre-Val de Loire", "lat": 47.3941, "lng": 0.6848, "population": 136000 },
+  { "name": "Orléans", "region": "Centre-Val de Loire", "lat": 47.9029, "lng": 1.9039, "population": 116000 },
+  { "name": "Bourges", "region": "Centre-Val de Loire", "lat": 47.0810, "lng": 2.3988, "population": 65000 },
+
+  { "name": "Ajaccio", "region": "Corse", "lat": 41.9192, "lng": 8.7386, "population": 72000 },
+  { "name": "Bastia", "region": "Corse", "lat": 42.7028, "lng": 9.4502, "population": 46000 }
+]
