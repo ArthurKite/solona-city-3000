@@ -1,9 +1,9 @@
+import { useState } from 'react'
 import FranceMap from './components/FranceMap'
+import CityModal from './components/CityModal'
 
 function App() {
-  const handleCityPicked = (city) => {
-    console.log('Picked city:', city)
-  }
+  const [pickedCity, setPickedCity] = useState(null)
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-50">
@@ -11,8 +11,9 @@ function App() {
         Solona City 3000
       </h1>
       <main className="flex-1 w-full max-w-5xl px-4 py-8">
-        <FranceMap onCityPicked={handleCityPicked} />
+        <FranceMap onCityPicked={setPickedCity} />
       </main>
+      <CityModal city={pickedCity} onClose={() => setPickedCity(null)} />
     </div>
   )
 }
