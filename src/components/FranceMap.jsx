@@ -8,7 +8,7 @@ const GEO_URL =
 const WIDTH = 600
 const HEIGHT = 700
 
-function FranceMap({ onCityPicked }) {
+function FranceMap({ onCityPicked, disabled = false }) {
   const [geoData, setGeoData] = useState(null)
   const [loadError, setLoadError] = useState(null)
   const [dart, setDart] = useState(null)
@@ -54,10 +54,7 @@ function FranceMap({ onCityPicked }) {
 
   return (
     <div className="w-full flex flex-col items-center gap-6">
-      <div
-        className="w-full flex items-center justify-center"
-        style={{ height: '70vh' }}
-      >
+      <div className="w-full flex items-center justify-center h-[60vh] md:h-[70vh]">
         {loadError && (
           <p className="text-red-600">Map failed to load: {loadError}</p>
         )}
@@ -102,7 +99,8 @@ function FranceMap({ onCityPicked }) {
       <button
         type="button"
         onClick={handleThrow}
-        disabled={!projection || animating}
+        disabled={!projection || animating || disabled}
+        aria-label="Throw the dart and pick a random French city"
         className="px-8 py-4 bg-blue-600 text-white text-xl font-bold rounded-xl shadow-lg hover:bg-blue-700 active:scale-95 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
         🎯 Throw the dart
