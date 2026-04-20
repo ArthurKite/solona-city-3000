@@ -1,74 +1,554 @@
 [
-  { "name": "Paris", "region": "Île-de-France", "lat": 48.8566, "lng": 2.3522, "population": 2161000 },
-  { "name": "Versailles", "region": "Île-de-France", "lat": 48.8014, "lng": 2.1301, "population": 85000 },
-  { "name": "Boulogne-Billancourt", "region": "Île-de-France", "lat": 48.8336, "lng": 2.2419, "population": 121000 },
-  { "name": "Saint-Denis", "region": "Île-de-France", "lat": 48.9362, "lng": 2.3574, "population": 113000 },
-  { "name": "Fontainebleau", "region": "Île-de-France", "lat": 48.4039, "lng": 2.7010, "population": 15000 },
+  {
+    "name": "Paris",
+    "region": "Île-de-France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "population": 2161000,
+    "attraction": "The Eiffel Tower, the 330-meter iron lattice icon built for the 1889 World's Fair.",
+    "funFact": "Paris has only one stop sign in the entire city — and even that one has been reportedly removed and reinstalled multiple times."
+  },
+  {
+    "name": "Versailles",
+    "region": "Île-de-France",
+    "lat": 48.8014,
+    "lng": 2.1301,
+    "population": 85000,
+    "attraction": "The Palace of Versailles, Louis XIV's gilded royal residence with its dazzling Hall of Mirrors.",
+    "funFact": "The Hall of Mirrors has 357 mirrors, and it's the same room where the treaty ending World War I was signed in 1919."
+  },
+  {
+    "name": "Boulogne-Billancourt",
+    "region": "Île-de-France",
+    "lat": 48.8336,
+    "lng": 2.2419,
+    "population": 121000,
+    "attraction": "The Albert Kahn Museum and its themed gardens, ranging from a Japanese village to a Vosges forest.",
+    "funFact": "The huge Renault factory on Île Seguin shaped the town for the entire 20th century — until it closed in 1992 and is now being turned into a cultural island."
+  },
+  {
+    "name": "Saint-Denis",
+    "region": "Île-de-France",
+    "lat": 48.9362,
+    "lng": 2.3574,
+    "population": 113000,
+    "attraction": "The Basilica of Saint-Denis, the world's first Gothic church and royal necropolis of France.",
+    "funFact": "More than 40 French kings, 30 queens and dozens of princes are buried under one roof here — making it the most royally crowded basement in Europe."
+  },
+  {
+    "name": "Fontainebleau",
+    "region": "Île-de-France",
+    "lat": 48.4039,
+    "lng": 2.7010,
+    "population": 15000,
+    "attraction": "The Château de Fontainebleau, a 1,500-room royal palace continuously inhabited by French monarchs for seven centuries.",
+    "funFact": "Napoleon said his farewell to the Imperial Guard from the château's horseshoe staircase in 1814 — the spot is still called the 'Cour des Adieux'."
+  },
 
-  { "name": "Lyon", "region": "Auvergne-Rhône-Alpes", "lat": 45.7640, "lng": 4.8357, "population": 522000 },
-  { "name": "Grenoble", "region": "Auvergne-Rhône-Alpes", "lat": 45.1885, "lng": 5.7245, "population": 158000 },
-  { "name": "Saint-Étienne", "region": "Auvergne-Rhône-Alpes", "lat": 45.4397, "lng": 4.3872, "population": 172000 },
-  { "name": "Annecy", "region": "Auvergne-Rhône-Alpes", "lat": 45.8992, "lng": 6.1294, "population": 130000 },
-  { "name": "Clermont-Ferrand", "region": "Auvergne-Rhône-Alpes", "lat": 45.7772, "lng": 3.0870, "population": 147000 },
-  { "name": "Chambéry", "region": "Auvergne-Rhône-Alpes", "lat": 45.5646, "lng": 5.9178, "population": 59000 },
-  { "name": "Valence", "region": "Auvergne-Rhône-Alpes", "lat": 44.9334, "lng": 4.8924, "population": 64000 },
+  {
+    "name": "Lyon",
+    "region": "Auvergne-Rhône-Alpes",
+    "lat": 45.7640,
+    "lng": 4.8357,
+    "population": 522000,
+    "attraction": "The Basilica of Notre-Dame de Fourvière, perched on the hill that gives Lyon its panoramic skyline.",
+    "funFact": "Lyon is the birthplace of cinema — the Lumière brothers shot the very first film, 'Workers Leaving the Lumière Factory', here in 1895."
+  },
+  {
+    "name": "Grenoble",
+    "region": "Auvergne-Rhône-Alpes",
+    "lat": 45.1885,
+    "lng": 5.7245,
+    "population": 158000,
+    "attraction": "The Bastille fortress reached by the 'Bulles' — round glass cable-car bubbles that have been climbing the cliff since 1934.",
+    "funFact": "Grenoble's bubble cable car was one of the very first urban cable cars in the world, and locals nicknamed the spheres 'Les Bulles' (the bubbles)."
+  },
+  {
+    "name": "Saint-Étienne",
+    "region": "Auvergne-Rhône-Alpes",
+    "lat": 45.4397,
+    "lng": 4.3872,
+    "population": 172000,
+    "attraction": "The Cité du Design, set inside the former state arms factory and now Saint-Étienne's creative landmark.",
+    "funFact": "Saint-Étienne is France's only UNESCO 'City of Design' — a legacy of its history of weapons, ribbons and bicycles all manufactured here."
+  },
+  {
+    "name": "Annecy",
+    "region": "Auvergne-Rhône-Alpes",
+    "lat": 45.8992,
+    "lng": 6.1294,
+    "population": 130000,
+    "attraction": "The Palais de l'Isle, a 12th-century stone prison shaped like a ship's prow in the middle of the Thiou canal.",
+    "funFact": "Lake Annecy is one of the cleanest lakes in Europe — strict pollution rules adopted in the 1960s mean you can swim almost anywhere along its 35 km of shore."
+  },
+  {
+    "name": "Clermont-Ferrand",
+    "region": "Auvergne-Rhône-Alpes",
+    "lat": 45.7772,
+    "lng": 3.0870,
+    "population": 147000,
+    "attraction": "The Cathédrale Notre-Dame-de-l'Assomption, built entirely of jet-black volcanic lava stone.",
+    "funFact": "The city is the global headquarters of Michelin, and its volcanic-stone cathedral makes it the only major French town that looks like it was carved out of the surrounding extinct volcanoes."
+  },
+  {
+    "name": "Chambéry",
+    "region": "Auvergne-Rhône-Alpes",
+    "lat": 45.5646,
+    "lng": 5.9178,
+    "population": 59000,
+    "attraction": "The Fontaine des Éléphants, a quirky monument with four bronze elephants built into a single column.",
+    "funFact": "Locals nicknamed the elephant fountain 'Les Quatre Sans-Culs' — 'the four bottomless ones' — because only the front halves of the elephants are visible."
+  },
+  {
+    "name": "Valence",
+    "region": "Auvergne-Rhône-Alpes",
+    "lat": 44.9334,
+    "lng": 4.8924,
+    "population": 64000,
+    "attraction": "The Kiosque Peynet, the Belle Époque bandstand that inspired the world-famous 'Les Amoureux' (The Lovers) cartoons.",
+    "funFact": "A 16-year-old Napoleon Bonaparte was stationed in Valence as a young artillery officer — and according to local lore, he had his very first dance lessons here."
+  },
 
-  { "name": "Lille", "region": "Hauts-de-France", "lat": 50.6292, "lng": 3.0573, "population": 234000 },
-  { "name": "Amiens", "region": "Hauts-de-France", "lat": 49.8941, "lng": 2.2957, "population": 134000 },
-  { "name": "Calais", "region": "Hauts-de-France", "lat": 50.9581, "lng": 1.8503, "population": 72000 },
-  { "name": "Roubaix", "region": "Hauts-de-France", "lat": 50.6901, "lng": 3.1817, "population": 98000 },
+  {
+    "name": "Lille",
+    "region": "Hauts-de-France",
+    "lat": 50.6292,
+    "lng": 3.0573,
+    "population": 234000,
+    "attraction": "The Vieille Bourse, an ornate 17th-century Flemish stock exchange whose courtyard now hosts a daily second-hand book market.",
+    "funFact": "Lille was Spanish for almost a century before Louis XIV took it in 1667 — which is why its centre still looks more like Bruges than Paris."
+  },
+  {
+    "name": "Amiens",
+    "region": "Hauts-de-France",
+    "lat": 49.8941,
+    "lng": 2.2957,
+    "population": 134000,
+    "attraction": "The Cathédrale Notre-Dame d'Amiens, the largest Gothic cathedral in France with an interior twice the volume of Paris's Notre-Dame.",
+    "funFact": "Jules Verne lived in Amiens for 35 years, served on its city council, and is buried in the local Madeleine cemetery — under a sculpture showing him pushing back his own tombstone."
+  },
+  {
+    "name": "Calais",
+    "region": "Hauts-de-France",
+    "lat": 50.9581,
+    "lng": 1.8503,
+    "population": 72000,
+    "attraction": "Rodin's 'Burghers of Calais' bronze, commemorating six citizens who offered their lives to save the besieged town in 1347.",
+    "funFact": "Calais is closer to England than to Paris — Dover is about 35 km across the Channel, while Paris is nearly 300 km away by road."
+  },
+  {
+    "name": "Roubaix",
+    "region": "Hauts-de-France",
+    "lat": 50.6901,
+    "lng": 3.1817,
+    "population": 98000,
+    "attraction": "La Piscine, an art museum installed inside a stunning 1930s Art Deco municipal swimming pool.",
+    "funFact": "The pool only stopped welcoming swimmers in 1985 because the roof was on the verge of collapsing — it took 16 years to turn it into the museum it is today."
+  },
 
-  { "name": "Bordeaux", "region": "Nouvelle-Aquitaine", "lat": 44.8378, "lng": -0.5792, "population": 260000 },
-  { "name": "Limoges", "region": "Nouvelle-Aquitaine", "lat": 45.8336, "lng": 1.2611, "population": 130000 },
-  { "name": "Poitiers", "region": "Nouvelle-Aquitaine", "lat": 46.5802, "lng": 0.3404, "population": 89000 },
-  { "name": "La Rochelle", "region": "Nouvelle-Aquitaine", "lat": 46.1591, "lng": -1.1520, "population": 76000 },
-  { "name": "Biarritz", "region": "Nouvelle-Aquitaine", "lat": 43.4832, "lng": -1.5586, "population": 25000 },
-  { "name": "Pau", "region": "Nouvelle-Aquitaine", "lat": 43.2951, "lng": -0.3708, "population": 77000 },
+  {
+    "name": "Bordeaux",
+    "region": "Nouvelle-Aquitaine",
+    "lat": 44.8378,
+    "lng": -0.5792,
+    "population": 260000,
+    "attraction": "The Place de la Bourse with its 'Miroir d'Eau', the world's largest reflecting pool at 3,450 square meters.",
+    "funFact": "Bordeaux has the largest pedestrianised area of any city in Europe, and its entire 18th-century centre is a single UNESCO World Heritage zone."
+  },
+  {
+    "name": "Limoges",
+    "region": "Nouvelle-Aquitaine",
+    "lat": 45.8336,
+    "lng": 1.2611,
+    "population": 130000,
+    "attraction": "The Musée National Adrien Dubouché, home to the world's most comprehensive collection of Limoges porcelain.",
+    "funFact": "Pure white kaolin clay was discovered next to Limoges in 1768 — and within 20 years the city's name had become a worldwide synonym for fine porcelain."
+  },
+  {
+    "name": "Poitiers",
+    "region": "Nouvelle-Aquitaine",
+    "lat": 46.5802,
+    "lng": 0.3404,
+    "population": 89000,
+    "attraction": "The Romanesque church of Notre-Dame-la-Grande, famous for its richly sculpted 12th-century facade of biblical scenes.",
+    "funFact": "Poitiers is so historically dense that the University of Poitiers, founded in 1431, briefly counted François Rabelais and René Descartes among its students."
+  },
+  {
+    "name": "La Rochelle",
+    "region": "Nouvelle-Aquitaine",
+    "lat": 46.1591,
+    "lng": -1.1520,
+    "population": 76000,
+    "attraction": "The three medieval towers (Saint-Nicolas, Chaîne and Lanterne) guarding the entrance to the Old Port.",
+    "funFact": "When Cardinal Richelieu besieged La Rochelle in 1627, he had a 1.5 km sea wall built across the harbour mouth — the city held out for 14 months and lost 80% of its population."
+  },
+  {
+    "name": "Biarritz",
+    "region": "Nouvelle-Aquitaine",
+    "lat": 43.4832,
+    "lng": -1.5586,
+    "population": 25000,
+    "attraction": "The Rocher de la Vierge, an offshore rock topped by a Virgin statue and reached by an iron footbridge designed by Eiffel's workshop.",
+    "funFact": "Biarritz was a sleepy whaling village until Empress Eugénie convinced Napoleon III to build a summer palace here in 1854 — turning it overnight into Europe's most fashionable beach resort."
+  },
+  {
+    "name": "Pau",
+    "region": "Nouvelle-Aquitaine",
+    "lat": 43.2951,
+    "lng": -0.3708,
+    "population": 77000,
+    "attraction": "The Château de Pau, the Renaissance castle where the future King Henri IV of France was born in 1553.",
+    "funFact": "Henri IV's cradle was famously a giant turtle shell — and the actual shell is still on display in the castle today."
+  },
 
-  { "name": "Toulouse", "region": "Occitanie", "lat": 43.6047, "lng": 1.4442, "population": 493000 },
-  { "name": "Montpellier", "region": "Occitanie", "lat": 43.6108, "lng": 3.8767, "population": 299000 },
-  { "name": "Nîmes", "region": "Occitanie", "lat": 43.8367, "lng": 4.3601, "population": 150000 },
-  { "name": "Perpignan", "region": "Occitanie", "lat": 42.6887, "lng": 2.8948, "population": 120000 },
-  { "name": "Carcassonne", "region": "Occitanie", "lat": 43.2130, "lng": 2.3491, "population": 47000 },
-  { "name": "Albi", "region": "Occitanie", "lat": 43.9298, "lng": 2.1479, "population": 49000 },
+  {
+    "name": "Toulouse",
+    "region": "Occitanie",
+    "lat": 43.6047,
+    "lng": 1.4442,
+    "population": 493000,
+    "attraction": "The Basilique Saint-Sernin, the largest surviving Romanesque church in Europe and a key stop on the Santiago pilgrimage route.",
+    "funFact": "Nearly every Airbus airliner ever built — including the giant A380 — was assembled in Toulouse, which is why the city's nickname is increasingly 'Aeroville' rather than just 'La Ville Rose'."
+  },
+  {
+    "name": "Montpellier",
+    "region": "Occitanie",
+    "lat": 43.6108,
+    "lng": 3.8767,
+    "population": 299000,
+    "attraction": "The Place de la Comédie, a vast egg-shaped square anchored by the Three Graces fountain and the 19th-century opera house.",
+    "funFact": "Montpellier's Faculty of Medicine, founded in 1220, is the oldest medical school in the western world still in continuous operation — Rabelais and Nostradamus both studied there."
+  },
+  {
+    "name": "Nîmes",
+    "region": "Occitanie",
+    "lat": 43.8367,
+    "lng": 4.3601,
+    "population": 150000,
+    "attraction": "The Arènes de Nîmes, a Roman amphitheatre from around 70 AD that is still used today for concerts and bullfights.",
+    "funFact": "The city's coat of arms — a crocodile chained to a palm tree — comes from a Roman coin celebrating the conquest of Egypt, and Hermès later borrowed the motif for one of its silk scarves."
+  },
+  {
+    "name": "Perpignan",
+    "region": "Occitanie",
+    "lat": 42.6887,
+    "lng": 2.8948,
+    "population": 120000,
+    "attraction": "The Palace of the Kings of Majorca, a fortified 13th-century citadel from when Perpignan was capital of the short-lived Majorcan kingdom.",
+    "funFact": "Salvador Dalí once declared Perpignan's train station to be 'the centre of the universe' after a mystical vision — and even painted a canvas of it in 1965."
+  },
+  {
+    "name": "Carcassonne",
+    "region": "Occitanie",
+    "lat": 43.2130,
+    "lng": 2.3491,
+    "population": 47000,
+    "attraction": "The Cité de Carcassonne, a fully fortified medieval town with double ramparts and 52 towers.",
+    "funFact": "Carcassonne was about to be demolished in the 1850s when architect Viollet-le-Duc convinced the state to restore it instead — and a German board game named after it has now sold over 12 million copies."
+  },
+  {
+    "name": "Albi",
+    "region": "Occitanie",
+    "lat": 43.9298,
+    "lng": 2.1479,
+    "population": 49000,
+    "attraction": "The Cathédrale Sainte-Cécile, the largest brick cathedral in the world, built like a fortress after the Cathar wars.",
+    "funFact": "Painter Henri de Toulouse-Lautrec was born in Albi in 1864, and the city's museum holds the largest collection of his works anywhere in the world."
+  },
 
-  { "name": "Strasbourg", "region": "Grand Est", "lat": 48.5734, "lng": 7.7521, "population": 287000 },
-  { "name": "Reims", "region": "Grand Est", "lat": 49.2583, "lng": 4.0317, "population": 182000 },
-  { "name": "Metz", "region": "Grand Est", "lat": 49.1193, "lng": 6.1757, "population": 116000 },
-  { "name": "Nancy", "region": "Grand Est", "lat": 48.6921, "lng": 6.1844, "population": 104000 },
-  { "name": "Colmar", "region": "Grand Est", "lat": 48.0794, "lng": 7.3585, "population": 69000 },
-  { "name": "Troyes", "region": "Grand Est", "lat": 48.2973, "lng": 4.0744, "population": 61000 },
+  {
+    "name": "Strasbourg",
+    "region": "Grand Est",
+    "lat": 48.5734,
+    "lng": 7.7521,
+    "population": 287000,
+    "attraction": "Strasbourg Cathedral, whose single 142-meter pink sandstone spire was the tallest building in the world from 1647 to 1874.",
+    "funFact": "Every day at 12:30, the cathedral's astronomical clock springs to life and a tiny procession of the apostles bows before a mechanical Christ — drawing crowds for over 175 years."
+  },
+  {
+    "name": "Reims",
+    "region": "Grand Est",
+    "lat": 49.2583,
+    "lng": 4.0317,
+    "population": 182000,
+    "attraction": "The Cathédrale Notre-Dame de Reims, the Gothic coronation church where 33 French kings were crowned.",
+    "funFact": "Beneath Reims runs more than 250 km of chalk tunnels, originally Roman quarries, now used by champagne houses to age millions of bottles at a constant 10°C."
+  },
+  {
+    "name": "Metz",
+    "region": "Grand Est",
+    "lat": 49.1193,
+    "lng": 6.1757,
+    "population": 116000,
+    "attraction": "The Centre Pompidou-Metz, a futuristic art museum topped by a vast woven hexagonal roof inspired by a Chinese hat.",
+    "funFact": "Metz's train station, built by the Germans in 1908 during the annexation, has been voted 'most beautiful train station in France' multiple times in national polls."
+  },
+  {
+    "name": "Nancy",
+    "region": "Grand Est",
+    "lat": 48.6921,
+    "lng": 6.1844,
+    "population": 104000,
+    "attraction": "Place Stanislas, an 18th-century gilded-gate masterpiece widely considered one of the most beautiful royal squares in Europe.",
+    "funFact": "The square was built by an exiled king of Poland, Stanisław Leszczyński, who became Duke of Lorraine and decided to spend his retirement turning Nancy into a tiny Versailles."
+  },
+  {
+    "name": "Colmar",
+    "region": "Grand Est",
+    "lat": 48.0794,
+    "lng": 7.3585,
+    "population": 69000,
+    "attraction": "The 'Little Venice' quarter, a postcard row of half-timbered houses lining the Lauch river canal.",
+    "funFact": "Colmar is the hometown of Frédéric Auguste Bartholdi — the sculptor who designed the Statue of Liberty — and the city even has a 12-meter replica of her on its northern roundabout."
+  },
+  {
+    "name": "Troyes",
+    "region": "Grand Est",
+    "lat": 48.2973,
+    "lng": 4.0744,
+    "population": 61000,
+    "attraction": "The medieval old town shaped like a champagne cork, packed with timber-framed houses along the narrow Ruelle des Chats.",
+    "funFact": "The unit of measurement called 'troy ounce', still used today for gold and silver, takes its name from the great medieval trade fairs held in Troyes."
+  },
 
-  { "name": "Marseille", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.2965, "lng": 5.3698, "population": 870000 },
-  { "name": "Nice", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.7102, "lng": 7.2620, "population": 342000 },
-  { "name": "Toulon", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.1242, "lng": 5.9280, "population": 171000 },
-  { "name": "Aix-en-Provence", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.5297, "lng": 5.4474, "population": 147000 },
-  { "name": "Avignon", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.9493, "lng": 4.8055, "population": 91000 },
-  { "name": "Cannes", "region": "Provence-Alpes-Côte d'Azur", "lat": 43.5528, "lng": 7.0174, "population": 74000 },
+  {
+    "name": "Marseille",
+    "region": "Provence-Alpes-Côte d'Azur",
+    "lat": 43.2965,
+    "lng": 5.3698,
+    "population": 870000,
+    "attraction": "The Basilica of Notre-Dame de la Garde, the 'Bonne Mère' standing 162 meters above the city on its limestone outcrop.",
+    "funFact": "Marseille is the oldest city in France, founded around 600 BC by Greek sailors from Phocaea — meaning it's about 800 years older than Paris."
+  },
+  {
+    "name": "Nice",
+    "region": "Provence-Alpes-Côte d'Azur",
+    "lat": 43.7102,
+    "lng": 7.2620,
+    "population": 342000,
+    "attraction": "The Promenade des Anglais, a 7-kilometer seafront walkway lined with palm trees and Belle Époque hotels.",
+    "funFact": "The Promenade was paid for in the 1820s by the city's wintering English aristocrats — which is why a French seafront in Italy-flavoured Nice has an English name."
+  },
+  {
+    "name": "Toulon",
+    "region": "Provence-Alpes-Côte d'Azur",
+    "lat": 43.1242,
+    "lng": 5.9280,
+    "population": 171000,
+    "attraction": "Mont Faron, a 584-meter clifftop reached by a small cable car offering a panoramic view of France's largest naval base.",
+    "funFact": "Napoleon Bonaparte first made his name as a 24-year-old artillery officer at the 1793 siege of Toulon — and got himself promoted from captain to brigadier general in just three months."
+  },
+  {
+    "name": "Aix-en-Provence",
+    "region": "Provence-Alpes-Côte d'Azur",
+    "lat": 43.5297,
+    "lng": 5.4474,
+    "population": 147000,
+    "attraction": "The Cours Mirabeau, a plane-tree-shaded avenue lined with Baroque mansions, fountains and historic cafés.",
+    "funFact": "Aix is nicknamed the 'city of a thousand fountains' — there are well over a hundred and several of them spout naturally warm water from underground thermal springs."
+  },
+  {
+    "name": "Avignon",
+    "region": "Provence-Alpes-Côte d'Azur",
+    "lat": 43.9493,
+    "lng": 4.8055,
+    "population": 91000,
+    "attraction": "The Palais des Papes, the largest Gothic palace in the world and seat of seven popes during the 14th century.",
+    "funFact": "For 68 years, popes ruled the Catholic Church not from Rome but from Avignon — and the city stayed officially papal property until the French Revolution confiscated it in 1791."
+  },
+  {
+    "name": "Cannes",
+    "region": "Provence-Alpes-Côte d'Azur",
+    "lat": 43.5528,
+    "lng": 7.0174,
+    "population": 74000,
+    "attraction": "The Palais des Festivals et des Congrès, home of the Cannes Film Festival and the famous red-carpeted steps.",
+    "funFact": "The Palme d'Or trophy is made of 118 grams of 24-carat gold mounted on a rock-crystal cushion — and the design is updated each year by Chopard, the official jeweller."
+  },
 
-  { "name": "Nantes", "region": "Pays de la Loire", "lat": 47.2184, "lng": -1.5536, "population": 320000 },
-  { "name": "Angers", "region": "Pays de la Loire", "lat": 47.4784, "lng": -0.5632, "population": 156000 },
-  { "name": "Le Mans", "region": "Pays de la Loire", "lat": 48.0061, "lng": 0.1996, "population": 145000 },
+  {
+    "name": "Nantes",
+    "region": "Pays de la Loire",
+    "lat": 47.2184,
+    "lng": -1.5536,
+    "population": 320000,
+    "attraction": "Les Machines de l'Île, a steampunk wonderland centred on a 12-meter mechanical elephant that walks the old shipyards.",
+    "funFact": "Nantes's giant mechanical elephant carries up to 50 passengers on its back, sprays water from its trunk, and was inspired by the imaginative writings of native son Jules Verne."
+  },
+  {
+    "name": "Angers",
+    "region": "Pays de la Loire",
+    "lat": 47.4784,
+    "lng": -0.5632,
+    "population": 156000,
+    "attraction": "The Château d'Angers, a striped fortress of slate and limestone hosting the 14th-century Apocalypse Tapestry.",
+    "funFact": "The Apocalypse Tapestry is the largest medieval tapestry ensemble ever woven — over 100 meters long — and was once cut up into rugs and horse blankets before being rescued in the 19th century."
+  },
+  {
+    "name": "Le Mans",
+    "region": "Pays de la Loire",
+    "lat": 48.0061,
+    "lng": 0.1996,
+    "population": 145000,
+    "attraction": "The Cité Plantagenêt, a remarkably preserved medieval old town encircled by 1,300 meters of Gallo-Roman walls.",
+    "funFact": "The 24 Hours of Le Mans is so demanding that the winning car typically covers more than 5,000 km — roughly the distance from Paris to New York — in a single race."
+  },
 
-  { "name": "Rouen", "region": "Normandie", "lat": 49.4432, "lng": 1.0993, "population": 113000 },
-  { "name": "Caen", "region": "Normandie", "lat": 49.1829, "lng": -0.3707, "population": 105000 },
-  { "name": "Le Havre", "region": "Normandie", "lat": 49.4944, "lng": 0.1079, "population": 165000 },
-  { "name": "Honfleur", "region": "Normandie", "lat": 49.4176, "lng": 0.2322, "population": 7400 },
+  {
+    "name": "Rouen",
+    "region": "Normandie",
+    "lat": 49.4432,
+    "lng": 1.0993,
+    "population": 113000,
+    "attraction": "Rouen Cathedral, the Gothic giant Monet famously painted in over 30 light-and-time-of-day variations.",
+    "funFact": "Joan of Arc was burned at the stake in Rouen's Place du Vieux-Marché in 1431 — and a striking modern church now stands on the exact spot, with a roof shaped like flames."
+  },
+  {
+    "name": "Caen",
+    "region": "Normandie",
+    "lat": 49.1829,
+    "lng": -0.3707,
+    "population": 105000,
+    "attraction": "The Château de Caen, one of the largest medieval fortresses in Europe, founded around 1060 by William the Conqueror.",
+    "funFact": "About 70% of Caen was destroyed in the summer of 1944 during the Battle of Normandy — yet William the Conqueror's 11th-century stone keep and abbeys still stand among the rebuilt streets."
+  },
+  {
+    "name": "Le Havre",
+    "region": "Normandie",
+    "lat": 49.4944,
+    "lng": 0.1079,
+    "population": 165000,
+    "attraction": "The reconstructed city centre by Auguste Perret, a striking 1950s ensemble of pre-cast concrete and the soaring Saint-Joseph church.",
+    "funFact": "Le Havre is the only 20th-century European city centre listed by UNESCO as World Heritage — recognition that a town rebuilt entirely in concrete after WWII could still be a masterpiece."
+  },
+  {
+    "name": "Honfleur",
+    "region": "Normandie",
+    "lat": 49.4176,
+    "lng": 0.2322,
+    "population": 7400,
+    "attraction": "The Vieux Bassin, a picture-perfect old harbour ringed by tall slate-fronted houses that inspired Boudin and the Impressionists.",
+    "funFact": "Honfleur's church of Sainte-Catherine was built entirely of wood by local shipbuilders after the Hundred Years War — its vaulted ceiling looks remarkably like an upside-down hull."
+  },
 
-  { "name": "Rennes", "region": "Bretagne", "lat": 48.1173, "lng": -1.6778, "population": 220000 },
-  { "name": "Brest", "region": "Bretagne", "lat": 48.3904, "lng": -4.4861, "population": 139000 },
-  { "name": "Quimper", "region": "Bretagne", "lat": 47.9960, "lng": -4.0979, "population": 62000 },
-  { "name": "Saint-Malo", "region": "Bretagne", "lat": 48.6494, "lng": -2.0260, "population": 46000 },
-  { "name": "Vannes", "region": "Bretagne", "lat": 47.6582, "lng": -2.7608, "population": 53000 },
+  {
+    "name": "Rennes",
+    "region": "Bretagne",
+    "lat": 48.1173,
+    "lng": -1.6778,
+    "population": 220000,
+    "attraction": "The Parlement de Bretagne, a 17th-century palace whose interior was nearly destroyed in a spectacular 1994 fire and meticulously rebuilt.",
+    "funFact": "Half of Rennes burned to the ground in 1720 in a six-day fire reportedly started by a drunk carpenter — which is why much of the centre is granite and slate rather than the original timber."
+  },
+  {
+    "name": "Brest",
+    "region": "Bretagne",
+    "lat": 48.3904,
+    "lng": -4.4861,
+    "population": 139000,
+    "attraction": "The Château de Brest, France's oldest continuously occupied castle and home today to the National Maritime Museum.",
+    "funFact": "Brest was so heavily bombed during World War II that around 90% of the city was flattened — yet the medieval castle survived almost untouched and is still used by the French Navy."
+  },
+  {
+    "name": "Quimper",
+    "region": "Bretagne",
+    "lat": 47.9960,
+    "lng": -4.0979,
+    "population": 62000,
+    "attraction": "The twin-spired Cathédrale Saint-Corentin, which is famously slightly bent — its nave doesn't quite line up with its choir.",
+    "funFact": "Quimper has been producing its hand-painted faïence pottery non-stop since 1690, making it one of the longest-running ceramic traditions in France."
+  },
+  {
+    "name": "Saint-Malo",
+    "region": "Bretagne",
+    "lat": 48.6494,
+    "lng": -2.0260,
+    "population": 46000,
+    "attraction": "The granite ramparts encircling the walled corsair city, offering a 1.7-kilometer wraparound view of the Channel.",
+    "funFact": "From 1590 to 1594 Saint-Malo declared itself an independent republic, and locals still proudly say 'Ni Français, ni Breton, Malouin suis' — neither French nor Breton, but Malouin."
+  },
+  {
+    "name": "Vannes",
+    "region": "Bretagne",
+    "lat": 47.6582,
+    "lng": -2.7608,
+    "population": 53000,
+    "attraction": "The medieval ramparts and the polychrome timber-framed houses lining Place Henri IV.",
+    "funFact": "On a corner house in the old town, two grinning carved granite heads called 'Vannes et sa Femme' (Vannes and his Wife) have been smiling at passers-by since the 16th century."
+  },
 
-  { "name": "Dijon", "region": "Bourgogne-Franche-Comté", "lat": 47.3220, "lng": 5.0415, "population": 157000 },
-  { "name": "Besançon", "region": "Bourgogne-Franche-Comté", "lat": 47.2378, "lng": 6.0241, "population": 118000 },
-  { "name": "Beaune", "region": "Bourgogne-Franche-Comté", "lat": 47.0240, "lng": 4.8398, "population": 21000 },
+  {
+    "name": "Dijon",
+    "region": "Bourgogne-Franche-Comté",
+    "lat": 47.3220,
+    "lng": 5.0415,
+    "population": 157000,
+    "attraction": "The Palais des Ducs et des États de Bourgogne, the former seat of the powerful Dukes of Burgundy.",
+    "funFact": "Dijon mustard is a culinary style, not a protected origin — almost none of the mustard sold under the name is actually produced in or near Dijon today."
+  },
+  {
+    "name": "Besançon",
+    "region": "Bourgogne-Franche-Comté",
+    "lat": 47.2378,
+    "lng": 6.0241,
+    "population": 118000,
+    "attraction": "The Citadelle de Besançon, a 17th-century fortress by Vauban perched 100 meters above a horseshoe bend in the Doubs river.",
+    "funFact": "Besançon is the birthplace of Victor Hugo and of the Lumière brothers, and was for nearly two centuries the watchmaking capital of France."
+  },
+  {
+    "name": "Beaune",
+    "region": "Bourgogne-Franche-Comté",
+    "lat": 47.0240,
+    "lng": 4.8398,
+    "population": 21000,
+    "attraction": "The Hospices de Beaune, a 1443 charity hospital famed for its multicoloured glazed-tile Burgundian roof.",
+    "funFact": "The Hospices still own vineyards donated by patients over the centuries, and their annual wine auction every November sets reference prices for fine Burgundy worldwide."
+  },
 
-  { "name": "Tours", "region": "Centre-Val de Loire", "lat": 47.3941, "lng": 0.6848, "population": 136000 },
-  { "name": "Orléans", "region": "Centre-Val de Loire", "lat": 47.9029, "lng": 1.9039, "population": 116000 },
-  { "name": "Bourges", "region": "Centre-Val de Loire", "lat": 47.0810, "lng": 2.3988, "population": 65000 },
+  {
+    "name": "Tours",
+    "region": "Centre-Val de Loire",
+    "lat": 47.3941,
+    "lng": 0.6848,
+    "population": 136000,
+    "attraction": "The Cathédrale Saint-Gatien, a Gothic gem with 13th-century stained glass and a Renaissance facade.",
+    "funFact": "Linguists have long held that the French spoken around Tours has the most neutral accent in the country — which is why dubbing studios in Paris regularly recruit voice actors from the area."
+  },
+  {
+    "name": "Orléans",
+    "region": "Centre-Val de Loire",
+    "lat": 47.9029,
+    "lng": 1.9039,
+    "population": 116000,
+    "attraction": "The Cathédrale Sainte-Croix, whose stained-glass windows tell the story of Joan of Arc lifting the siege of Orléans in 1429.",
+    "funFact": "Every year on May 8, Orléans throws a costumed parade to celebrate Joan of Arc — a tradition that has been running, with very few interruptions, since 1430."
+  },
+  {
+    "name": "Bourges",
+    "region": "Centre-Val de Loire",
+    "lat": 47.0810,
+    "lng": 2.3988,
+    "population": 65000,
+    "attraction": "The Cathédrale Saint-Étienne de Bourges, a UNESCO Gothic masterpiece famous for being built without a transept.",
+    "funFact": "By skipping the usual cross-shaped transept, the architects of Bourges Cathedral created an enormous unobstructed nave that still feels jaw-droppingly tall and open eight centuries later."
+  },
 
-  { "name": "Ajaccio", "region": "Corse", "lat": 41.9192, "lng": 8.7386, "population": 72000 },
-  { "name": "Bastia", "region": "Corse", "lat": 42.7028, "lng": 9.4502, "population": 46000 }
+  {
+    "name": "Ajaccio",
+    "region": "Corse",
+    "lat": 41.9192,
+    "lng": 8.7386,
+    "population": 72000,
+    "attraction": "The Maison Bonaparte, the modest townhouse where Napoleon was born in 1769 and now a national museum.",
+    "funFact": "When Napoleon was born, Corsica had been French for barely 15 months — meaning the most famous Frenchman in history was technically born just in time to be French."
+  },
+  {
+    "name": "Bastia",
+    "region": "Corse",
+    "lat": 42.7028,
+    "lng": 9.4502,
+    "population": 46000,
+    "attraction": "The Vieux Port and the towering 18th-century Église Saint-Jean-Baptiste that overlooks it.",
+    "funFact": "Bastia served as the capital of Corsica for over 300 years — and was only stripped of the title in 1791, when revolutionary France handed it to Napoleon's hometown of Ajaccio instead."
+  }
 ]
