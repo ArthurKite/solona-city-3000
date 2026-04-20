@@ -1,5 +1,198 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Caslon Text", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --ink: #1a1f36;
+  --ink-2: #2e3555;
+  --muted: #5a6079;
+  --line: #c9c2ae;
+  --line-2: #e4dfcf;
+  --paper: #f5f1e8;
+  --paper-2: #ede7d4;
+  --paper-3: #faf7ee;
+  --sovereign: #1d3d7a;
+  --sovereign-dark: #132a58;
+  --vermillion: #b2392f;
+  --gold: #8a6d2c;
+  --sage: #3d6b4a;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Libre Franklin", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif {
+  font-family: "Libre Caslon Text", Georgia, serif;
+}
+.mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+a {
+  color: var(--sovereign);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: var(--vermillion);
+}
+
+.paper-grain {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(rgba(90, 70, 30, 0.035) 1px, transparent 1px),
+    radial-gradient(rgba(90, 70, 30, 0.025) 1px, transparent 1px);
+  background-size:
+    3px 3px,
+    7px 7px;
+  background-position:
+    0 0,
+    1px 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border: 2px solid var(--paper-2);
+  border-radius: 4px;
+}
+
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--vermillion);
+  color: var(--vermillion);
+  padding: 4px 10px 3px;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 10px;
+  transform: rotate(-3deg);
+  opacity: 0.85;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--sovereign);
+  outline-offset: 2px;
+}
+
+@keyframes dropIn {
+  from {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.anim-drop {
+  animation: dropIn 0.3s ease-out;
+}
+.anim-fade {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.dot-1 {
+  animation: pulse-dot 1.2s 0s infinite;
+}
+.dot-2 {
+  animation: pulse-dot 1.2s 0.15s infinite;
+}
+.dot-3 {
+  animation: pulse-dot 1.2s 0.3s infinite;
+}
+
+.dept-path {
+  fill: var(--paper-3);
+  stroke: var(--ink);
+  stroke-width: 0.4;
+  transition: fill 0.15s;
+}
+.dept-path:hover {
+  fill: var(--paper-2);
+}
+.dept-path.active {
+  fill: #dfe7f4;
+}
+
+.rule-thick-thin {
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 6px;
+}
+
+.dossier {
+  background: var(--paper-3);
+  border: 1px solid var(--ink);
+  box-shadow:
+    0 2px 0 var(--ink),
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 4px var(--paper-3),
+    inset 0 0 0 5px var(--line);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+.skel {
+  background: linear-gradient(
+    90deg,
+    var(--paper-2) 0%,
+    var(--paper-3) 50%,
+    var(--paper-2) 100%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

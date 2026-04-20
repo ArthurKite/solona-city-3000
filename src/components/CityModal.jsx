@@ -1,52 +1,94 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import confetti from 'canvas-confetti'
 import { getWeather } from '../services/weather'
 import { getCityInfo } from '../services/cityInfo'
 import { buildSlackMessage } from '../services/slackMessage'
+import Seal from './civic/Seal'
+import WeatherGlyph from './civic/WeatherGlyph'
 
-function Section({ icon, heading, action, children }) {
+function MetaCell({ label, value }) {
   return (
-    <section className="border-t border-gray-200 pt-4">
-      <div className="flex items-center justify-between mb-2 gap-2">
-        <h3 className="text-sm font-semibold text-gray-800 flex items-center gap-2">
-          <span className="text-lg">{icon}</span>
-          {heading}
-        </h3>
-        {action}
+    <div>
+      <div
+        className="mono"
+        style={{
+          fontSize: 9,
+          color: 'var(--muted)',
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+        }}
+      >
+        {label}
       </div>
-      <div className="text-gray-700">{children}</div>
-    </section>
-  )
-}
-
-function Skeleton() {
-  return (
-    <div className="space-y-4 animate-pulse" aria-hidden="true">
-      {[0, 1, 2, 3].map((i) => (
-        <div key={i} className="border-t border-gray-200 pt-4 space-y-2">
-          <div className="h-3 w-1/3 bg-gray-200 rounded" />
-          <div className="h-3 w-full bg-gray-200 rounded" />
-          <div className="h-3 w-5/6 bg-gray-200 rounded" />
-        </div>
-      ))}
+      <div
+        className="serif"
+        style={{ fontSize: 16, fontWeight: 600, marginTop: 2 }}
+      >
+        {value}
+      </div>
     </div>
   )
 }
 
-function fireConfetti() {
-  if (
-    typeof window !== 'undefined' &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  ) {
-    return
-  }
-  confetti({
-    particleCount: 80,
-    spread: 60,
-    startVelocity: 35,
-    origin: { x: 0.5, y: 0.3 },
-    scalar: 0.9,
-  })
+function DossierSection({ num, title, action, children }) {
+  return (
+    <section
+      style={{ borderTop: '1px solid var(--line)', padding: '16px 28px' }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'baseline',
+          justifyContent: 'space-between',
+          gap: 12,
+          marginBottom: 8,
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
+          <span
+            className="mono"
+            style={{
+              fontSize: 10,
+              color: 'var(--gold)',
+              letterSpacing: '0.15em',
+            }}
+          >
+            § {num}
+          </span>
+          <h3
+            className="serif"
+            style={{
+              margin: 0,
+              fontSize: 15,
+              fontWeight: 700,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+            }}
+          >
+            {title}
+          </h3>
+        </div>
+        {action}
+      </div>
+      <div style={{ fontSize: 14, color: 'var(--ink-2)', lineHeight: 1.55 }}>
+        {children}
+      </div>
+    </section>
+  )
+}
+
+function DossierSkeleton() {
+  return (
+    <div style={{ padding: 28 }}>
+      <div className="skel" style={{ height: 14, width: '40%', marginBottom: 16 }} />
+      <div className="skel" style={{ height: 8, width: '90%', marginBottom: 8 }} />
+      <div className="skel" style={{ height: 8, width: '80%', marginBottom: 24 }} />
+      <div className="skel" style={{ height: 14, width: '30%', marginBottom: 16 }} />
+      <div className="skel" style={{ height: 8, width: '70%', marginBottom: 8 }} />
+      <div className="skel" style={{ height: 8, width: '60%', marginBottom: 24 }} />
+      <div className="skel" style={{ height: 14, width: '35%', marginBottom: 16 }} />
+      <div className="skel" style={{ height: 8, width: '85%' }} />
+    </div>
+  )
 }
 
 function CityModal({ city, onClose, onWeatherStateChange }) {
@@ -55,7 +97,6 @@ function CityModal({ city, onClose, onWeatherStateChange }) {
   const dialogRef = useRef(null)
   const previouslyFocused = useRef(null)
 
-  // --- Weather fetch + parent loading notification ---
   useEffect(() => {
     if (!city) {
       onWeatherStateChange?.(false)
@@ -83,12 +124,6 @@ function CityModal({ city, onClose, onWeatherStateChange }) {
     }
   }, [city, onWeatherStateChange])
 
-  // --- Confetti on open ---
-  useEffect(() => {
-    if (city) fireConfetti()
-  }, [city])
-
-  // --- Escape closes the modal ---
   useEffect(() => {
     if (!city) return
     const onKey = (e) => {
@@ -98,7 +133,6 @@ function CityModal({ city, onClose, onWeatherStateChange }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [city, onClose])
 
-  // --- Focus management: store previous, focus first element, restore on close ---
   useEffect(() => {
     if (!city) return
     previouslyFocused.current = document.activeElement
@@ -110,7 +144,6 @@ function CityModal({ city, onClose, onWeatherStateChange }) {
     }
   }, [city])
 
-  // --- Tab focus trap inside dialog ---
   useEffect(() => {
     if (!city) return
     const onKey = (e) => {
@@ -140,21 +173,16 @@ function CityModal({ city, onClose, onWeatherStateChange }) {
     [city],
   )
 
+  const docNo = useMemo(() => {
+    if (!city) return ''
+    const seed = Math.abs(city.name.charCodeAt(0) * 37)
+    return `SOL-3000 / DOS-${String(seed).padStart(4, '0')} / ${new Date().getFullYear()}`
+  }, [city])
+
   if (!city) return null
 
   const { attraction, funFact } = getCityInfo(city)
   const isLoading = weather.status === 'loading'
-
-  let weatherContent
-  if (weather.status === 'error') {
-    weatherContent = (
-      <span className="text-gray-600 italic">Weather unavailable</span>
-    )
-  } else if (weather.status === 'ready') {
-    weatherContent = `${weather.data.tempC}°C — ${weather.data.description}`
-  } else {
-    weatherContent = null
-  }
 
   const handleCopy = async () => {
     try {
@@ -166,9 +194,28 @@ function CityModal({ city, onClose, onWeatherStateChange }) {
     }
   }
 
+  const issued = new Date()
+    .toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    })
+    .toUpperCase()
+
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
+      className="anim-fade"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 60,
+        background: 'rgba(26,31,54,0.65)',
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        padding: '6vh 20px 20px',
+        overflowY: 'auto',
+      }}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -176,63 +223,358 @@ function CityModal({ city, onClose, onWeatherStateChange }) {
     >
       <div
         ref={dialogRef}
-        className="relative bg-white rounded-2xl shadow-xl max-w-lg w-full p-4 md:p-6 space-y-4 max-h-[90vh] overflow-y-auto"
+        className="dossier anim-drop"
+        style={{ width: '100%', maxWidth: 720, position: 'relative' }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 rounded-full text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center justify-center text-xl leading-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          style={{
+            position: 'absolute',
+            top: 12,
+            right: 12,
+            zIndex: 2,
+            width: 32,
+            height: 32,
+            border: '1px solid var(--ink)',
+            background: 'var(--paper-3)',
+            cursor: 'pointer',
+            fontSize: 16,
+            fontFamily: 'inherit',
+            color: 'var(--ink)',
+          }}
         >
           ✕
         </button>
 
-        <header className="pr-10">
-          <h2
-            id="city-modal-title"
-            className="text-2xl md:text-3xl font-bold text-gray-900"
+        {/* Ribbon header */}
+        <div
+          style={{
+            background: 'var(--sovereign)',
+            color: 'var(--paper-3)',
+            padding: '14px 28px',
+            borderBottom: '4px double var(--gold)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 14,
+          }}
+        >
+          <div style={{ color: 'var(--gold)' }}>
+            <Seal size={48} />
+          </div>
+          <div style={{ flex: 1 }}>
+            <div
+              className="mono"
+              style={{
+                fontSize: 10,
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+                opacity: 0.8,
+              }}
+            >
+              Official Designation Dossier
+            </div>
+            <div
+              className="serif"
+              style={{
+                fontSize: 14,
+                fontWeight: 400,
+                fontStyle: 'italic',
+                opacity: 0.9,
+              }}
+            >
+              Ministère des Villes Aléatoires
+            </div>
+          </div>
+          <div
+            className="mono"
+            style={{ fontSize: 10, textAlign: 'right', opacity: 0.85 }}
           >
-            {city.name}
-          </h2>
-          <p className="text-gray-600 mt-1">{city.region}</p>
-        </header>
+            <div>{docNo}</div>
+            <div>ISSUED · {issued}</div>
+          </div>
+        </div>
+
+        {/* Title block */}
+        <div style={{ padding: '28px 28px 18px', position: 'relative' }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'space-between',
+              gap: 20,
+            }}
+          >
+            <div style={{ flex: 1 }}>
+              <div
+                className="mono"
+                style={{
+                  fontSize: 11,
+                  color: 'var(--muted)',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  marginBottom: 6,
+                }}
+              >
+                Subject municipality
+              </div>
+              <h2
+                id="city-modal-title"
+                className="serif"
+                style={{
+                  margin: 0,
+                  fontSize: 44,
+                  lineHeight: 1,
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                {city.name}
+              </h2>
+              <div
+                className="serif"
+                style={{
+                  fontSize: 14,
+                  color: 'var(--ink-2)',
+                  marginTop: 6,
+                  fontStyle: 'italic',
+                }}
+              >
+                {city.region} · Metropolitan France
+              </div>
+            </div>
+            <div className="stamp" style={{ marginTop: 18 }}>
+              Certified · Drawn
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: 14,
+              marginTop: 22,
+              borderTop: '1px solid var(--ink)',
+              borderBottom: '1px solid var(--ink)',
+              padding: '10px 0',
+            }}
+          >
+            <MetaCell
+              label="Population"
+              value={
+                city.population ? city.population.toLocaleString() : '—'
+              }
+            />
+            <MetaCell label="Latitude" value={city.lat.toFixed(4) + '°'} />
+            <MetaCell label="Longitude" value={city.lng.toFixed(4) + '°'} />
+            <MetaCell label="Status" value="Active" />
+          </div>
+        </div>
 
         {isLoading ? (
-          <Skeleton />
+          <DossierSkeleton />
         ) : (
           <>
-            <Section icon="🏛️" heading="Main tourist attraction">
+            <DossierSection num="I" title="Principal Attraction">
               {attraction}
-            </Section>
+            </DossierSection>
 
-            <Section icon="☀️" heading="Current weather">
-              {weatherContent}
-            </Section>
+            <DossierSection num="II" title="Current Atmospheric Conditions">
+              {weather.status === 'error' && (
+                <span style={{ color: 'var(--muted)', fontStyle: 'italic' }}>
+                  Measurement unavailable at this time.
+                </span>
+              )}
+              {weather.status === 'ready' && (
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 18,
+                    flexWrap: 'wrap',
+                  }}
+                >
+                  <div
+                    style={{
+                      color: 'var(--sovereign)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 10,
+                    }}
+                  >
+                    <WeatherGlyph code={weather.data.code} size={44} />
+                    <span
+                      className="serif"
+                      style={{
+                        fontSize: 36,
+                        fontWeight: 700,
+                        letterSpacing: '-0.02em',
+                      }}
+                    >
+                      {weather.data.tempC}°
+                      <span style={{ fontSize: 20, opacity: 0.7 }}>C</span>
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      flex: 1,
+                      display: 'grid',
+                      gridTemplateColumns: 'auto 1fr',
+                      gap: '4px 16px',
+                      fontSize: 13,
+                    }}
+                  >
+                    <span
+                      className="mono"
+                      style={{
+                        color: 'var(--muted)',
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        fontSize: 10,
+                      }}
+                    >
+                      Sky
+                    </span>
+                    <span>{weather.data.description}</span>
+                    <span
+                      className="mono"
+                      style={{
+                        color: 'var(--muted)',
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        fontSize: 10,
+                      }}
+                    >
+                      Wind
+                    </span>
+                    <span>{weather.data.wind} km/h</span>
+                    <span
+                      className="mono"
+                      style={{
+                        color: 'var(--muted)',
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        fontSize: 10,
+                      }}
+                    >
+                      Humidity
+                    </span>
+                    <span>{weather.data.humidity}%</span>
+                  </div>
+                </div>
+              )}
+            </DossierSection>
 
-            <Section icon="💡" heading="Fun fact">
-              {funFact}
-            </Section>
+            <DossierSection num="III" title="Notable Particular">
+              <div
+                style={{
+                  borderLeft: '3px solid var(--gold)',
+                  paddingLeft: 14,
+                  fontStyle: 'italic',
+                  fontFamily: '"Libre Caslon Text", serif',
+                  fontSize: 15,
+                  color: 'var(--ink)',
+                }}
+              >
+                "{funFact}"
+              </div>
+            </DossierSection>
 
-            <Section
-              icon="📣"
-              heading="Slack announcement"
+            <DossierSection
+              num="IV"
+              title="Campaign Communiqué"
               action={
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="text-xs px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 active:scale-95 transition focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  style={{
+                    fontSize: 11,
+                    padding: '5px 10px',
+                    background: copied ? 'var(--sage)' : 'var(--ink)',
+                    color: 'var(--paper-3)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontFamily: 'inherit',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                  }}
                 >
-                  {copied ? 'Copied!' : 'Copy to clipboard'}
+                  {copied ? '✓ Copied' : 'Copy to clipboard'}
                 </button>
               }
             >
-              <pre className="whitespace-pre-wrap font-sans text-xs md:text-sm bg-gray-50 p-3 rounded-md text-gray-800">
+              <div
+                className="mono"
+                style={{
+                  fontSize: 12,
+                  color: 'var(--muted)',
+                  marginBottom: 8,
+                }}
+              >
+                Model template · for transmission on any communal channel
+              </div>
+              <pre
+                style={{
+                  background: 'var(--paper-2)',
+                  border: '1px dashed var(--line)',
+                  padding: 14,
+                  whiteSpace: 'pre-wrap',
+                  fontFamily: '"JetBrains Mono", monospace',
+                  fontSize: 12,
+                  lineHeight: 1.55,
+                  color: 'var(--ink)',
+                  margin: 0,
+                }}
+              >
                 {slackAnnouncement}
               </pre>
-            </Section>
+            </DossierSection>
           </>
         )}
+
+        {/* Footer */}
+        <div
+          className="mono"
+          style={{
+            borderTop: '1px solid var(--ink)',
+            background: 'var(--paper-2)',
+            padding: '14px 28px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 14,
+            fontSize: 11,
+            color: 'var(--muted)',
+          }}
+        >
+          <span>
+            AUTH · OFFICE OF THE REGISTRAR · {new Date().getFullYear()}
+          </span>
+          <span>PAGE 01 / 01</span>
+          <span style={{ display: 'flex', gap: 14 }}>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                window.print()
+              }}
+            >
+              Print
+            </a>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                onClose()
+              }}
+            >
+              Close
+            </a>
+          </span>
+        </div>
       </div>
     </div>
   )
