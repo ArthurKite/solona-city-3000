@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getWeather } from '../services/weather'
+import { getCityInfo } from '../services/cityInfo'
 
 function Section({ icon, heading, action, children }) {
   return (
@@ -38,6 +39,8 @@ function CityModal({ city, onClose }) {
   }, [city])
 
   if (!city) return null
+
+  const { attraction, funFact } = getCityInfo(city)
 
   let weatherContent
   if (weather.status === 'loading') {
@@ -89,7 +92,7 @@ function CityModal({ city, onClose }) {
         </header>
 
         <Section icon="🏛️" heading="Main tourist attraction">
-          Loading...
+          {attraction}
         </Section>
 
         <Section icon="☀️" heading="Current weather">
@@ -97,7 +100,7 @@ function CityModal({ city, onClose }) {
         </Section>
 
         <Section icon="💡" heading="Fun fact">
-          Loading...
+          {funFact}
         </Section>
 
         <Section
