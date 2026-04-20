@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getWeather } from '../services/weather'
 
 function Section({ icon, heading, action, children }) {
   return (
@@ -17,8 +18,35 @@ function Section({ icon, heading, action, children }) {
 
 function CityModal({ city, onClose }) {
   const [copied, setCopied] = useState(false)
+  const [weather, setWeather] = useState({ status: 'loading', data: null })
+
+  useEffect(() => {
+    if (!city) return
+    let cancelled = false
+    setWeather({ status: 'loading', data: null })
+    getWeather(city.lat, city.lng)
+      .then((data) => {
+        if (!cancelled) setWeather({ status: 'ready', data })
+      })
+      .catch((err) => {
+        console.error('Weather fetch failed', err)
+        if (!cancelled) setWeather({ status: 'error', data: null })
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [city])
 
   if (!city) return null
+
+  let weatherContent
+  if (weather.status === 'loading') {
+    weatherContent = 'Loading...'
+  } else if (weather.status === 'error') {
+    weatherContent = 'Weather unavailable'
+  } else {
+    weatherContent = `${weather.data.tempC}°C — ${weather.data.description}`
+  }
 
   const slackAnnouncement = 'Loading...'
 
@@ -65,7 +93,7 @@ function CityModal({ city, onClose }) {
         </Section>
 
         <Section icon="☀️" heading="Current weather">
-          Loading...
+          {weatherContent}
         </Section>
 
         <Section icon="💡" heading="Fun fact">
