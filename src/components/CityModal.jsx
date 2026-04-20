@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { getWeather } from '../services/weather'
 import { getCityInfo } from '../services/cityInfo'
+import { buildSlackMessage } from '../services/slackMessage'
 
 function Section({ icon, heading, action, children }) {
   return (
@@ -38,6 +39,11 @@ function CityModal({ city, onClose }) {
     }
   }, [city])
 
+  const slackAnnouncement = useMemo(
+    () => (city ? buildSlackMessage(city) : ''),
+    [city],
+  )
+
   if (!city) return null
 
   const { attraction, funFact } = getCityInfo(city)
@@ -51,7 +57,6 @@ function CityModal({ city, onClose }) {
     weatherContent = `${weather.data.tempC}°C — ${weather.data.description}`
   }
 
-  const slackAnnouncement = 'Loading...'
 
   const handleCopy = async () => {
     try {
@@ -116,7 +121,9 @@ function CityModal({ city, onClose }) {
             </button>
           }
         >
-          {slackAnnouncement}
+          <pre className="whitespace-pre-wrap font-sans text-sm bg-gray-50 p-3 rounded-md text-gray-700">
+            {slackAnnouncement}
+          </pre>
         </Section>
       </div>
     </div>
