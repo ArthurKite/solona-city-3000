@@ -36,7 +36,7 @@ export function weatherCodeToLabel(code) {
 }
 
 export async function getWeather(lat, lng) {
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code`
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code,wind_speed_10m,relative_humidity_2m`
   const res = await fetch(url)
   if (!res.ok) throw new Error(`Weather request failed: HTTP ${res.status}`)
   const data = await res.json()
@@ -50,6 +50,9 @@ export async function getWeather(lat, lng) {
     tempC: Math.round(current.temperature_2m),
     description,
     icon,
+    code: current.weather_code,
+    wind: Math.round(current.wind_speed_10m ?? 0),
+    humidity: Math.round(current.relative_humidity_2m ?? 0),
   }
 }
 

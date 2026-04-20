@@ -1,22 +1,44 @@
 import { useState } from 'react'
 import FranceMap from './components/FranceMap'
 import CityModal from './components/CityModal'
+import UtilityBar from './components/civic/UtilityBar'
+import Masthead from './components/civic/Masthead'
+import PrimaryNav from './components/civic/PrimaryNav'
+import AlertBanner from './components/civic/AlertBanner'
+import RegisterMarquee from './components/civic/RegisterMarquee'
+import Intro from './components/civic/Intro'
+import InfoRail from './components/civic/InfoRail'
+import SiteFooter from './components/civic/SiteFooter'
 
 function App() {
   const [pickedCity, setPickedCity] = useState(null)
   const [weatherLoading, setWeatherLoading] = useState(false)
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-blue-50 via-white to-red-50">
-      <h1 className="text-3xl md:text-4xl font-bold mt-8 md:mt-12 text-gray-900">
-        Solona City 3000
-      </h1>
-      <main className="flex-1 w-full max-w-5xl px-3 md:px-4 py-6 md:py-8">
-        <FranceMap onCityPicked={setPickedCity} disabled={weatherLoading} />
+    <div className="paper-grain" style={{ minHeight: '100vh' }}>
+      <UtilityBar />
+      <Masthead />
+      <PrimaryNav />
+      <AlertBanner />
+      <RegisterMarquee />
+
+      <main
+        style={{
+          maxWidth: 1280,
+          margin: '0 auto',
+          padding: '40px 24px 24px',
+        }}
+      >
+        <Intro />
+        <FranceMap
+          onCityPicked={setPickedCity}
+          disabled={weatherLoading || !!pickedCity}
+        />
+        <InfoRail />
       </main>
-      <footer className="w-full text-center text-xs text-gray-600 py-4">
-        Solona City 3000 — Powered by Claude &amp; Open-Meteo
-      </footer>
+
+      <SiteFooter />
+
       <CityModal
         city={pickedCity}
         onClose={() => setPickedCity(null)}
